@@ -1,78 +1,78 @@
-console.log('core module\n');
+/* this is a one part of the code(1st part)
 const { log } = require('console');
-//path module
-// const path = require('path');
-// const mypath='C:/Users/Sakib/learn-nodejs/index.js'
-// console.log(path.basename(mypath));
-// console.log(path.dirname(mypath));
-// console.log(path.extname(mypath));
-// console.log(path.parse(mypath));
+const fs= require('fs');
 
+const ourReadStream = fs.createReadStream(`${__dirname}/bigData.txt`,'utf8');
 
-//os module
-const os=require('os');
-// log(os.platform());
-// log(os.homedir());
-// log(os.hostname());
-// log(os.freemem());
-// log(os.arch());
-// log(os.constants);
-// log(os.cpus());
-// log(os.networkInterfaces());
-// log(os.endianness());
-// log(os.loadavg());
-// log(os.uptime());
-// log(os.machine());
-// log(os.release());
-// log(os.userInfo());
-// log(os.version());
+ourReadStream.on('data',(data)=>{
+    // console.log(chunk.toString());
+    // console.log(data);
+});
+log('Reading file...');
 
+*/
 
+/* this is a another part of the code (2nd part)
 
-//fs module
+const http = require('http');
 
-const fs=require('fs'); 
-
-// fs.writeFileSync('test.txt','Hello mkbs');//syncronous
-// fs.appendFileSync('test.txt','\ni am a programmer\nokay');
-// const data = fs.readFileSync('test.txt');
-// log(data.toString());
-
-// fs.writeFile('hi.log','Okay this is asyncronous',err=>{
-//     // log(err);
-// });
-// // fs.appendFile('hi.log','\nthis is additional');
-// fs.readFile('hi.log',(err,data)=>{
-//     console.log(data.toString());
-// });
-
-/*//start
-//emmiter event in single file 
-const EventEmmiter=require('events');
-const emitter = new EventEmmiter();
-
-//register a listener for belling event
-emitter.on('belling',({name,age,degree})=>{
-    log(`class is over. now we need to go ${name} is ${age} year old. ${degree}`);
+const server = http.createServer((req,res)=>{
+    if(req.url === '/'){
+        res.write(`
+        <html>
+        <head>
+        <title>My First Node App</title>
+        </head>
+        <body>
+        <h1>Welcome to my first Node App</h1>
+        <form action="/about" method="POST">
+        <input type="text" value="sakib" name="recieved">
+        <form>
+        </body>
+        </html>
+        `);
+        res.end();
+    }else if(req.url === '/about' && req.method === 'POST'){
+        req.on('data',(chunk)=>{
+            console.log(chunk.toString());
+        });
+        res.write('<h1>About Page</h1>');
+        console.log('About Page');
+        res.end();
+    }else{   
+        res.write('Not Found');
+        res.end();
+    }
 });
 
-//raise an event
-setTimeout(()=>{
-    emitter.emit('belling',{
-        name:'sakib',
-        age:22,
-        degree:'Bsc'
-    })
-},100);
+server.listen(3000);
+console.log('Server is listening on port 3000...');
 */
 
 
-//emitter inport from other file
+/* this is a another part of the code (3rd part)
 
-const School=require('./School');
-const school = new School();
+const { log } = require('console');
+const fs= require('fs');
 
-school.on('belling',({name,age,degree})=>{
-    console.log(`class is over. now we need to go ${name} is ${age} year old. ${degree}`);
+const ourReadStream = fs.createReadStream(`${__dirname}/bigData.txt`);
+const ourWriteStream = fs.createWriteStream(`${__dirname}/output.txt`);
+
+// ourReadStream.on('data',(chunk)=>{
+//    ourWriteStream.write(chunk);
+// });
+ourReadStream.pipe(ourWriteStream);
+log('writing file...');
+
+*/
+
+// this is a another part of the code (4th part)
+
+const http = require('http');
+const fs = require('fs');
+const server = http.createServer((req, res)=>{
+    const myReadstream = fs.createReadStream(`${__dirname}/bigData.txt`,'utf8');
+    myReadstream.pipe(res);
 });
-school.start_period();
+server.listen(3000);
+console.log('Server is listening on port 3000...');
