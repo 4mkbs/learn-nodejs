@@ -38,21 +38,6 @@
 // console.log(path.dirname(__filename));
 // console.log(path.extname(__filename));
 
-//os module
-const os = require("os");
-// console.log(os.platform());
-// console.log(os.arch());
-// console.log(os.cpus());
-// console.log(os.availableParallelism());
-// console.log(os.freemem());
-// let total = os.totalmem();
-// total = total / (1024 * 1024 * 1024);
-// console.log(Math.ceil(total) + "gb");
-// console.log(os.homedir());
-// console.log(os.tmpdir());
-// console.log(os.uptime());
-// console.log(os.userInfo());
-
 // fs module
-const fs = require("fs");
-fs.writeFileSync("own.txt", "sakib");
+// const fs = require("fs");
+// fs.writeFileSync("own.txt", "sakib");
