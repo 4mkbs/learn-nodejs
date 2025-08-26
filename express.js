@@ -1,20 +1,20 @@
-// const express = require("express");
+const express = require("express");
 
-// const app = express();
+const app = express();
 
-// app.use(express.json());
+app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   res.json({ message: "Hello, World!" });
-// });
-// app.post("/", (req, res) => {
-//   const { name } = req.body;
-//   res.json({ message: `Hello, ${name}!` });
-// });
+app.get("/", (req, res) => {
+  res.json({ message: "Hello, World!" });
+});
+app.post("/", (req, res) => {
+  const { name } = req.body;
+  res.json({ message: `Hello, ${name}!` });
+});
 
-// app.listen(65000, () => {
-//   console.log("listening on url http://localhost:65000");
-// });
+app.listen(65000, () => {
+  console.log("listening on url http://localhost:65000");
+});
 
 //file dir name
 // console.log(__dirname);
@@ -32,12 +32,5 @@
 //   console.log("IIFE");
 // })();
 
-// path module
-// const path = require("path");
-// console.log(path.basename(__filename));
-// console.log(path.dirname(__filename));
-// console.log(path.extname(__filename));
 
-// fs module
-// const fs = require("fs");
-// fs.writeFileSync("own.txt", "sakib");
+module.exports = app;
