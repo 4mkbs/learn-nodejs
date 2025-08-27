@@ -6,7 +6,8 @@ const serverStats = require("./experiment/serverstate");
 // const fsmodule = require("./experiment/fs");
 // const taskManager = require("./experiment/taskManager");
 // const event = require("./experiment/event");
-const orderSystem = require("./experiment/orderProcessEvent");
+// const orderSystem = require("./experiment/orderProcessEvent");
+const { userEmitter } = require("./experiment/tenEventExmple");
 
 //log
 // console.log(serverStats);
