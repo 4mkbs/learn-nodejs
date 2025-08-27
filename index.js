@@ -4,10 +4,11 @@ const serverStats = require("./experiment/serverstate");
 // const osModule = require("./experiment/os");
 // const pathModule = require("./experiment/path");
 const fsmodule = require("./experiment/fs");
+const taskManager = require("./experiment/taskManager");
 
 //log
 // console.log(serverStats);
 // osModule.status();
 // console.log(osModule.osbasic);
 // console.log(pathModule);
-fsmodule.fsbasic();
+// fsmodule.fsbasic();
