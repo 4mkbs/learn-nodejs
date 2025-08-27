@@ -1,18 +1,20 @@
-const eve = require("events");
-const eventEmitter = new eve.EventEmitter();
+/*
+ * Titile: event.js
+ * Description: 4mkbs code's
+ * Author: Muhammad Khairul Bashar Sakib ( MKBS )
+ * Date: 27/08/2025 19:59:47
+ */
+
+const School = require("./school");
+
+const school = new School();
 
 // register an event listener for the "bell" event
-eventEmitter.on("bell", ({ name, day }) => {
+school.on("bell", ({ name, day }) => {
   console.log("Bell event received:", name, "today is", day);
 });
 
 // raise the "bell" event every 5 seconds
-setTimeout(() => {
-  // eventEmitter.emit("bell", "Ding Dong!");// Emitting with a message
-  eventEmitter.emit("bell", {
-    name: "Ding Dong!",
-    day: new Date().getDate(),
-  }); // Emitting with a message
-}, 1000);
+school.start();
 
-module.exports = { eventEmitter };
+module.exports = { school };
