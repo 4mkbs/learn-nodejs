@@ -6,6 +6,7 @@
  */
 
 // fs module
+const { log } = require("console");
 const fs = require("fs");
 
 const fsbasic = () => {
@@ -15,4 +16,11 @@ const fsbasic = () => {
   fs.appendFileSync("hello.txt", " hello");
 };
 
+// const data = fs.readFileSync("hello.txt");
+// log(data.toString());
+const data = fs.readFile("hello.txt", "utf-8", (err, data) => {
+  if (err) throw err;
+  log(data);
+});
+console.log("First showing");
 module.exports = { fsbasic };
