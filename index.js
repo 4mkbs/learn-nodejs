@@ -1,4 +1,4 @@
-const serverStats = require("./experiment/serverstate");
+// const serverStats = require("./experiment/serverstate");
 // const { server } = require("./experiment/littleserver");
 // const app = require("./express");
 // const osModule = require("./experiment/os");
@@ -7,8 +7,8 @@ const serverStats = require("./experiment/serverstate");
 // const taskManager = require("./experiment/taskManager");
 // const event = require("./experiment/event");
 // const orderSystem = require("./experiment/orderProcessEvent");
-const { userEmitter } = require("./experiment/tenEventExmple");
-
+// const { userEmitter } = require("./experiment/tenEventExmple");
+const server = require("./experiment/http");
 //log
 // console.log(serverStats);
 // osModule.status();
