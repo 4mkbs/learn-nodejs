@@ -8,7 +8,8 @@
 // const event = require("./experiment/event");
 // const orderSystem = require("./experiment/orderProcessEvent");
 // const { userEmitter } = require("./experiment/tenEventExmple");
-const server = require("./experiment/http");
+// const server = require("./experiment/http");
+const stream = require("./experiment/stream");
 //log
 // console.log(serverStats);
 // osModule.status();
