@@ -6,19 +6,6 @@ const isValidEmail = (email) => {
   return typeof email === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
 
-const getBearerToken = (authorizationHeader) => {
-  if (!authorizationHeader || typeof authorizationHeader !== "string") {
-    return null;
-  }
-
-  const [scheme, token] = authorizationHeader.split(" ");
-  if (scheme !== "Bearer" || !token) {
-    return null;
-  }
-
-  return token;
-};
-
 const signup = async (req, res) => {
   const { name, email, password } = req.body;
   try {
@@ -79,12 +66,7 @@ const login = async (req, res) => {
 
 const getProfile = async (req, res) => {
   try {
-    const token = getBearerToken(req.header("Authorization"));
-    if (!token) {
-      return res.status(401).json({ msg: "Unauthorized" });
-    }
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.id);
+    const user = await User.findById(req.user.id).select("-password");
     if (!user) {
       return res.status(404).json({ msg: "User not found" });
     }
