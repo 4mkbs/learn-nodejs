@@ -1,69 +1,24 @@
-# Learn Node.js Auth API
+# Learn Node.js Starter
 
-A simple Node.js authentication API built with Express, MongoDB (Mongoose), JWT, and bcrypt.
+This repository is kept as a minimal base branch for future practice work.
 
-## Features
+## What is included
 
-- User signup with hashed password
-- User login with JWT token generation
-- Protected profile endpoint with Bearer token auth
-- Email and password validation
-- MongoDB connection with startup error handling
-
-## Tech Stack
-
-- Node.js
-- Express
-- MongoDB + Mongoose
-- bcryptjs
-- jsonwebtoken
-- dotenv
-
-## Project Structure
-
-```text
-learn-nodejs/
-  config/
-    db.js
-  controllers/
-    auth.js
-  middlewares/
-    authMiddleware.js
-  models/
-    user.js
-  routes/
-    authRoutes.js
-  server.js
-  package.json
-  .env
-```
+- `index.js` with a small Express app
+- `package.json` with starter scripts
+- `.gitignore` for common Node files
 
 ## Prerequisites
 
 - Node.js 18+
-- MongoDB URI (local or Atlas)
 
-## Installation
+## Install
 
 ```bash
 npm install
 ```
 
-## Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-PORT=3000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_key
-```
-
-Notes:
-- If `PORT` is not set, the server uses `5000` by default.
-- `MONGO_URI` and `JWT_SECRET` are required.
-
-## Run the App
+## Run
 
 Development mode:
 
@@ -77,164 +32,47 @@ Production mode:
 npm start
 ```
 
-Health check endpoint:
+## Available Routes
 
-- `GET /api`
+- `GET /` returns a plain text starter message
+- `GET /api` returns a JSON starter response
+
+## Branch Workflow
+
+Use `main` as the base branch.
+
+```bash
+git checkout main
+git pull origin main
+git checkout -b my-practice-branch
+```
+
+Keep practice features in separate branches so `main` stays clean and reusable.
+
+## My Practice Branch List
+
+Click any branch below to open it on GitHub:
+
+- [1st](https://github.com/4MKBS/learn-nodejs/tree/1st)
+- [2nd](https://github.com/4MKBS/learn-nodejs/tree/2nd)
+- [3rd](https://github.com/4MKBS/learn-nodejs/tree/3rd)
+- [4th](https://github.com/4MKBS/learn-nodejs/tree/4th)
+- [5th](https://github.com/4MKBS/learn-nodejs/tree/5th)
+- [expense-tracker](https://github.com/4MKBS/learn-nodejs/tree/expense-tracker)
+- [githubActivity](https://github.com/4MKBS/learn-nodejs/tree/githubActivity)
+- [loginSingup](https://github.com/4MKBS/learn-nodejs/tree/loginSingup)
+
+To navigate locally in terminal:
+
+```bash
+git checkout branch-name
+```
 
 Example:
 
 ```bash
-curl http://localhost:3000/api
+git checkout expense-tracker
 ```
-
-## API Endpoints
-
-Base URL:
-
-- `http://localhost:3000/api/auth`
-
-### 1) Signup
-
-- Method: `POST`
-- Path: `/signup`
-
-Request body:
-
-```json
-{
-  "name": "Sakib",
-  "email": "sakib@example.com",
-  "password": "123456"
-}
-```
-
-Success response:
-
-- `201 Created`
-
-```json
-{
-  "msg": "user created successfully."
-}
-```
-
-Possible errors:
-
-- `400` Valid email is required
-- `400` Password must be at least 6 characters
-- `400` User already exists
-
-### 2) Login
-
-- Method: `POST`
-- Path: `/login`
-
-Request body:
-
-```json
-{
-  "email": "sakib@example.com",
-  "password": "123456"
-}
-```
-
-Success response:
-
-- `200 OK`
-
-```json
-{
-  "token": "<jwt_token>"
-}
-```
-
-Possible errors:
-
-- `400` Email and password are required
-- `400` Invalid credentials
-
-### 3) Profile (Protected)
-
-- Method: `GET`
-- Path: `/profile`
-- Header: `Authorization: Bearer <jwt_token>`
-
-Success response:
-
-- `200 OK`
-
-```json
-{
-  "msg": "Welcome to your profile",
-  "user": {
-    "_id": "...",
-    "name": "Sakib",
-    "email": "sakib@example.com",
-    "__v": 0
-  }
-}
-```
-
-Possible errors:
-
-- `401` Unauthorized
-- `404` User not found
-
-## Middleware Flow
-
-Protected routes use route-level middleware.
-
-Current flow for profile route:
-
-1. Client sends request to `GET /api/auth/profile` with `Authorization: Bearer <token>`
-2. Router runs `authMiddleware` first
-3. Middleware validates Bearer format and verifies JWT
-4. Middleware attaches decoded payload to `req.user`
-5. Controller (`getProfile`) reads `req.user.id` and fetches user data
-
-Code locations:
-
-- Route wiring: `routes/authRoutes.js`
-- Middleware: `middlewares/authMiddleware.js`
-- Profile controller: `controllers/auth.js`
-
-## Quick cURL Testing Flow
-
-### Signup
-
-```bash
-curl -X POST http://localhost:3000/api/auth/signup \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Sakib","email":"sakib@example.com","password":"123456"}'
-```
-
-### Login
-
-```bash
-curl -X POST http://localhost:3000/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"sakib@example.com","password":"123456"}'
-```
-
-Copy the token from the login response.
-
-### Profile
-
-```bash
-curl http://localhost:3000/api/auth/profile \
-  -H "Authorization: Bearer YOUR_TOKEN_HERE"
-```
-
-## Scripts
-
-- `npm start` -> run server with Node
-- `npm run dev` -> run server with Nodemon
-
-## Current Improvement Ideas
-
-- Add centralized error handler middleware
-- Add request validation library (for example, `express-validator`)
-- Add tests (unit + integration)
 
 ## License
 
