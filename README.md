@@ -61,6 +61,7 @@ Click any branch below to open it on GitHub:
 - [expense-tracker](https://github.com/4MKBS/learn-nodejs/tree/expense-tracker)
 - [githubActivity](https://github.com/4MKBS/learn-nodejs/tree/githubActivity)
 - [loginSingup](https://github.com/4MKBS/learn-nodejs/tree/loginSingup)
+- [number-guessing-game](https://github.com/4MKBS/learn-nodejs/tree/number-geuss)
 
 To navigate locally in terminal:
 
