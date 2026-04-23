@@ -1,6 +1,0 @@
-mk
-sakib
-bashar
-family
-dev
-web

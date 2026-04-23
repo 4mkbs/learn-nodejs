@@ -1,32 +1,52 @@
 {
   "name": "learn-nodejs",
   "version": "1.0.0",
-  "description": "learn",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "nodemon index.js",
+=======
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+>>>>>>> loginSingup
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "mkbs",
-  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git remote add origin https://github.com/4MKBS/learn-nodejs.git"
+    "url": "git+https://github.com/4MKBS/learn-nodejs.git"
   },
+<<<<<<< HEAD
   "keywords": [
     "learn",
     "nodejs",
     "javascript"
   ],
+=======
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+>>>>>>> loginSingup
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/4MKBS/learn-nodejs/issues"
   },
   "homepage": "https://github.com/4MKBS/learn-nodejs#readme",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^5.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
+=======
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+>>>>>>> loginSingup
   }
 }
