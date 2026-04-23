@@ -1,8 +1,7 @@
 {
-  "name": "github-activity",
+  "name": "learn-nodejs",
   "version": "1.0.0",
   "description": "",
-  "keywords": [],
   "homepage": "https://github.com/4MKBS/learn-nodejs#readme",
   "bugs": {
     "url": "https://github.com/4MKBS/learn-nodejs/issues"
@@ -11,14 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/4MKBS/learn-nodejs.git"
   },
+  "bin": {
+    "expense-tracker": "./expenseTracker.js"
+  },
   "license": "ISC",
-  "author": "mkbs",
+  "author": "",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": {
-  "ghact": "./index.js"
-}
+  "dependencies": {
+    "commander": "^14.0.3"
+  }
 }

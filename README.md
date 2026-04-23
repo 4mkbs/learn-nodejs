@@ -1,22 +1,26 @@
-# GitHub User Info CLI
+# Expense Tracker CLI
 
-A simple Node.js CLI tool to fetch and display basic GitHub user information by username.
+A simple command-line expense tracker built with Node.js and Commander.
 
 ## Features
 
-- Takes a GitHub username as a command-line argument
-- Fetches user data from the GitHub API
-- Prints:
-  - Username
-  - Name
-  - Public repositories count
-  - Followers
-  - Following
-  - Profile URL
+- Add expenses with description and amount
+- List all expenses
+- Delete an expense by ID
+- Show total expense summary
+- Show monthly summary by month number
+- Persist data in a local JSON file
 
-## Requirements
+## Tech Stack
 
-- Node.js 18+ (uses built-in `fetch`)
+- Node.js
+- commander
+
+## Project Files
+
+- `expenseTracker.js`: CLI entry and command handlers
+- `expenses.json`: stored expense data
+- `package.json`: project metadata and CLI binary mapping
 
 ## Installation
 
@@ -24,55 +28,113 @@ A simple Node.js CLI tool to fetch and display basic GitHub user information by 
 npm install
 ```
 
-## Usage
+## Run Options
 
-### Run directly with Node
-
-```bash
-node index.js <github-username>
-```
-
-Example:
+### Option 1: Run directly with Node
 
 ```bash
-node index.js octocat
+node expenseTracker.js <command> [options]
 ```
 
-### Run as CLI command (`ghact`)
+### Option 2: Use as a global/local CLI command
 
-This project defines a bin command in `package.json`.
+The project defines this binary:
+
+- `expense-tracker` -> `./expenseTracker.js`
+
+Link it locally:
 
 ```bash
 npm link
-ghact <github-username>
 ```
 
-Example:
+Then run:
 
 ```bash
-ghact octocat
+expense-tracker <command> [options]
 ```
 
-## Example Output
+## Commands
+
+### Add an expense
+
+```bash
+expense-tracker add --description "Lunch" --amount 12.5
+```
+
+Output:
 
 ```text
-Hello, octocat! Welcome to Node.js!
-GitHub User: octocat
-Name: The Octocat
-Public Repos: 8
-Followers: 22403
-Following: 9
-Profile URL: https://github.com/octocat
+Expense added successfully (ID: 1)
 ```
 
-## Error Handling
+### List expenses
 
-- If no username is provided:
-  - `Please provide a username as an argument`
-- If the GitHub API request fails:
-  - Prints an error message from the API response
+```bash
+expense-tracker list
+```
+
+Output format:
+
+```text
+ID  Date       Description  Amount
+1   2026-04-23  Lunch  $12.5
+```
+
+### Delete an expense
+
+```bash
+expense-tracker delete --id 1
+```
+
+Output:
+
+```text
+Expense deleted successfully
+```
+
+### Show summary (all months)
+
+```bash
+expense-tracker summary
+```
+
+Output:
+
+```text
+Total expenses: $12.5
+```
+
+### Show summary for one month
+
+```bash
+expense-tracker summary --month 4
+```
+
+Output:
+
+```text
+Total expenses for month 4: $12.5
+```
+
+## Data Storage
+
+Expenses are stored in `expenses.json` in this format:
+
+```json
+[
+  {
+    "id": 1,
+    "date": "2026-04-23",
+    "description": "Lunch",
+    "amount": 12.5
+  }
+]
+```
 
 ## Notes
 
-- GitHub unauthenticated requests are rate-limited.
-- If the rate limit is exceeded, the API may return an error until the limit resets.
+- Dates are stored as `YYYY-MM-DD`.
+- `--amount` is parsed as a number.
+- `--id` and `--month` are parsed as integers.
+- Deleting an expense removes matching IDs from `expenses.json`.
