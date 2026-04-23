@@ -1,33 +1,24 @@
 {
-  "name": "learn-nodejs",
+  "name": "number-guessing-game",
   "version": "1.0.0",
-  "description": "Minimal Node.js starter for practice branches",
+  "description": "",
   "main": "index.js",
+  "bin":{
+    "num-guess":"./index.js"
+  },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/4MKBS/learn-nodejs.git"
   },
-  "keywords": [
-    "nodejs",
-    "starter",
-    "practice"
-  ],
-  "author": "mkbs",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/4MKBS/learn-nodejs/issues"
   },
-  "homepage": "https://github.com/4MKBS/learn-nodejs#readme",
-  "dependencies": {
-    "express": "^5.2.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.14"
-  }
+  "homepage": "https://github.com/4MKBS/learn-nodejs#readme"
 }
