@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head", { title: "Home" }) %>
+  <body>
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+
+    <div class="page-wrap">
+      <%- include("partials/nav") %>
+
+      <main class="hero">
+        <p class="eyebrow">Simple. Fast. Accurate.</p>
+        <h1>Convert units with a cleaner workflow.</h1>
+        <p class="hero-text">
+          Pick a category, enter a value, choose units, and get instant
+          conversion results.
+        </p>
+
+        <section class="card-grid">
+          <a class="converter-card" href="/length">
+            <h2>Length</h2>
+            <p>mm, cm, m, km, inch, foot, yard, mile</p>
+          </a>
+
+          <a class="converter-card" href="/weight">
+            <h2>Weight</h2>
+            <p>mg, g, kg, oz, lb</p>
+          </a>
+
+          <a class="converter-card" href="/temperature">
+            <h2>Temperature</h2>
+            <p>Celsius, Fahrenheit, Kelvin</p>
+          </a>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,80 +1,116 @@
-# Learn Node.js Starter
+# Unit Converter (Node.js + Express + EJS)
 
-This repository is kept as a minimal base branch for future practice work.
+A simple unit converter web app built with Express and EJS templates.
 
-## What is included
+## Features
 
-- `index.js` with a small Express app
-- `package.json` with starter scripts
-- `.gitignore` for common Node files
+- Convert Length units
+- Convert Weight units
+- Convert Temperature units
+- Server-rendered pages using EJS
+- Modular code structure (routes, controllers, utils)
 
-## Prerequisites
+## Tech Stack
 
-- Node.js 18+
+- Node.js
+- Express
+- EJS
+- CSS
 
-## Install
+## Project Structure
+
+```text
+learn-nodejs/
+  index.js
+  package.json
+  public/
+    styles.css
+  src/
+    constants/
+      units.js
+    controllers/
+      converterController.js
+    routes/
+      converterRoutes.js
+    utils/
+      converters.js
+  views/
+    converter.ejs
+    home.ejs
+    partials/
+      head.ejs
+      nav.ejs
+```
+
+## Installation
+
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-## Run
-
-Development mode:
-
-```bash
-npm run dev
-```
-
-Production mode:
+2. Run the app:
 
 ```bash
 npm start
 ```
 
+3. Open in browser:
+
+```text
+http://localhost:3000
+```
+
 ## Available Routes
 
-- `GET /` returns a plain text starter message
-- `GET /api` returns a JSON starter response
+- `GET /` -> Home page
+- `GET /length` -> Length form
+- `POST /length` -> Length conversion result
+- `GET /weight` -> Weight form
+- `POST /weight` -> Weight conversion result
+- `GET /temperature` -> Temperature form
+- `POST /temperature` -> Temperature conversion result
 
-## Branch Workflow
+## Supported Units
 
-Use `main` as the base branch.
+### Length
 
-```bash
-git checkout main
-git pull origin main
-git checkout -b my-practice-branch
-```
+- mm
+- cm
+- m
+- km
+- inch
+- foot
+- yard
+- mile
 
-Keep practice features in separate branches so `main` stays clean and reusable.
+### Weight
 
-## My Practice Branch List
+- mg
+- g
+- kg
+- oz
+- lb
 
-Click any branch below to open it on GitHub:
+### Temperature
 
-- [1st](https://github.com/4MKBS/learn-nodejs/tree/1st)
-- [2nd](https://github.com/4MKBS/learn-nodejs/tree/2nd)
-- [3rd](https://github.com/4MKBS/learn-nodejs/tree/3rd)
-- [4th](https://github.com/4MKBS/learn-nodejs/tree/4th)
-- [5th](https://github.com/4MKBS/learn-nodejs/tree/5th)
-- [expense-tracker](https://github.com/4MKBS/learn-nodejs/tree/expense-tracker)
-- [githubActivity](https://github.com/4MKBS/learn-nodejs/tree/githubActivity)
-- [loginSingup](https://github.com/4MKBS/learn-nodejs/tree/loginSingup)
-- [number-guessing-game](https://github.com/4MKBS/learn-nodejs/tree/number-geuss)
+- C
+- F
+- K
 
-To navigate locally in terminal:
+## Learning Notes
 
-```bash
-git checkout branch-name
-```
+- Routing lives in `src/routes/converterRoutes.js`
+- Request handling and rendering logic lives in `src/controllers/converterController.js`
+- Conversion formulas live in `src/utils/converters.js`
+- Unit definitions are centralized in `src/constants/units.js`
+- EJS templates are in `views/`
+- Shared UI sections are in `views/partials/`
 
-Example:
+## Future Improvements
 
-```bash
-git checkout expense-tracker
-```
-
-## License
-
-ISC
+- Add automated tests for converter functions
+- Add input validation with user-friendly messages
+- Add more categories (Area, Volume, Time)
+- Preserve form state better across submissions

@@ -1,23 +1,19 @@
 {
-  "name": "learn-nodejs",
+  "name": "unit-converter",
   "version": "1.0.0",
-  "description": "Minimal Node.js starter for practice branches",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node index.js",
+    "test": "echo \"No tests configured\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/4MKBS/learn-nodejs.git"
   },
-  "keywords": [
-    "nodejs",
-    "starter",
-    "practice"
-  ],
-  "author": "mkbs",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
@@ -25,9 +21,8 @@
   },
   "homepage": "https://github.com/4MKBS/learn-nodejs#readme",
   "dependencies": {
+    "body-parser": "^2.2.2",
+    "ejs": "^3.1.10",
     "express": "^5.2.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.14"
   }
 }

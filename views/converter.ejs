@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head", { title: type.charAt(0).toUpperCase() + type.slice(1) }) %>
+  <body>
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+
+    <div class="page-wrap">
+      <%- include("partials/nav") %>
+
+      <main class="panel">
+        <h1><%= type.charAt(0).toUpperCase() + type.slice(1) %> Converter</h1>
+
+        <form method="POST" action="/<%= type %>" class="convert-form">
+          <label>
+            Value
+            <input
+              type="number"
+              name="value"
+              step="any"
+              required
+              value="<%= form.value || '' %>"
+              placeholder="Enter a number"
+            />
+          </label>
+
+          <div class="select-row">
+            <label>
+              From
+              <select name="fromUnit" required>
+                <% units.forEach(function(unit) { %>
+                  <option value="<%= unit %>" <%= form.fromUnit === unit ? "selected" : "" %>>
+                    <%= unit %>
+                  </option>
+                <% }) %>
+              </select>
+            </label>
+
+            <label>
+              To
+              <select name="toUnit" required>
+                <% units.forEach(function(unit) { %>
+                  <option value="<%= unit %>" <%= form.toUnit === unit ? "selected" : "" %>>
+                    <%= unit %>
+                  </option>
+                <% }) %>
+              </select>
+            </label>
+          </div>
+
+          <button type="submit">Convert Now</button>
+        </form>
+
+        <% if (error) { %>
+          <section class="result error"><%= error %></section>
+        <% } %>
+
+        <% if (result) { %>
+          <section class="result success">
+            <strong><%= result.inputValue %> <%= result.fromUnit %></strong>
+            <span>=</span>
+            <strong><%= result.convertedValue %> <%= result.toUnit %></strong>
+          </section>
+        <% } %>
+      </main>
+    </div>
+  </body>
+</html>
