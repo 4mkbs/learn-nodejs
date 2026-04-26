@@ -63,6 +63,7 @@ Click any branch below to open it on GitHub:
 - [loginSingup](https://github.com/4MKBS/learn-nodejs/tree/loginSingup)
 - [number-guessing-game](https://github.com/4MKBS/learn-nodejs/tree/number-geuss)
 - [unit-converter](https://github.com/4MKBS/learn-nodejs/tree/unit-converter)
+- [personal-blog](https://github.com/4MKBS/learn-nodejs/tree/personal-blog)
 
 To navigate locally in terminal:
 
