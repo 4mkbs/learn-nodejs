@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head", { title }) %>
+  <body>
+    <div class="grain"></div>
+    <header class="site-header">
+      <a href="/" class="brand">Personal Blog</a>
+      <a href="/admin/login" class="btn small">Admin</a>
+    </header>
+
+    <main class="container single-article">
+      <a href="/" class="back-link">Back to all articles</a>
+
+      <article class="card full">
+        <p class="meta">Published on <%= article.displayDate %></p>
+        <h1><%= article.title %></h1>
+        <div class="article-content"><%= article.content %></div>
+      </article>
+    </main>
+  </body>
+</html>

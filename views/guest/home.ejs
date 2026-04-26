@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head", { title }) %>
+  <body>
+    <div class="grain"></div>
+    <header class="site-header">
+      <a href="/" class="brand">Personal Blog</a>
+      <a href="/admin/login" class="btn small">Admin</a>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <p class="eyebrow">Guest Section</p>
+        <h1>Stories, notes, and experiments.</h1>
+        <p>
+          Read published articles and open any post to view full content and
+          publication date.
+        </p>
+      </section>
+
+      <section class="article-list">
+        <% if (articles.length === 0) { %>
+        <article class="card empty">
+          <h2>No articles yet</h2>
+          <p>Login as admin and publish your first post.</p>
+        </article>
+        <% } %> <% articles.forEach(function(article) { %>
+        <article class="card">
+          <p class="meta"><%= article.displayDate %></p>
+          <h2>
+            <a href="/article/<%= article.slug %>"><%= article.title %></a>
+          </h2>
+          <p>
+            <%= article.content.length > 180 ? article.content.slice(0, 180) +
+            "..." : article.content %>
+          </p>
+          <a class="read-more" href="/article/<%= article.slug %>"
+            >Read article</a
+          >
+        </article>
+        <% }) %>
+      </section>
+    </main>
+  </body>
+</html>

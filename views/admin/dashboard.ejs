@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head", { title }) %>
+  <body>
+    <div class="grain"></div>
+    <header class="site-header">
+      <a href="/" class="brand">Personal Blog</a>
+      <div class="row-actions">
+        <a href="/admin/articles/new" class="btn small">Add Article</a>
+        <form method="POST" action="/admin/logout">
+          <button class="btn small ghost" type="submit">Logout</button>
+        </form>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero compact">
+        <p class="eyebrow">Admin Dashboard</p>
+        <h1>Manage your published articles</h1>
+      </section>
+
+      <section class="table-wrap">
+        <% if (articles.length === 0) { %>
+        <article class="card empty">
+          <h2>No articles available</h2>
+          <p>Create your first article from the Add Article page.</p>
+        </article>
+        <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Slug</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% articles.forEach(function(article) { %>
+            <tr>
+              <td><%= article.title %></td>
+              <td><%= article.displayDate %></td>
+              <td><%= article.slug %></td>
+              <td>
+                <div class="row-actions">
+                  <a class="btn small" href="/article/<%= article.slug %>"
+                    >View</a
+                  >
+                  <a
+                    class="btn small"
+                    href="/admin/articles/<%= article.id %>/edit"
+                    >Edit</a
+                  >
+                  <form
+                    method="POST"
+                    action="/admin/articles/<%= article.id %>/delete"
+                    onsubmit="return confirm('Delete this article?');"
+                  >
+                    <button class="btn small danger" type="submit">
+                      Delete
+                    </button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<% if (errors && errors.length > 0) { %>
+<section class="alert error">
+  <ul>
+    <% errors.forEach(function(error) { %>
+    <li><%= error %></li>
+    <% }) %>
+  </ul>
+</section>
+<% } %>

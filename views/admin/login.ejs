@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head", { title }) %>
+  <body>
+    <div class="grain"></div>
+    <main class="container auth-wrap">
+      <section class="card auth-card">
+        <p class="eyebrow">Admin Section</p>
+        <h1>Login</h1>
+        <p>Use your admin credentials to access dashboard actions.</p>
+
+        <% if (error) { %>
+        <section class="alert error"><%= error %></section>
+        <% } %>
+
+        <form method="POST" action="/admin/login" class="stack-form">
+          <label>
+            Username
+            <input type="text" name="username" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+          <button class="btn" type="submit">Sign In</button>
+        </form>
+
+        <a class="back-link" href="/">Back to guest home</a>
+      </section>
+    </main>
+  </body>
+</html>

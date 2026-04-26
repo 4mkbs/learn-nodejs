@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head", { title }) %>
+  <body>
+    <div class="grain"></div>
+    <header class="site-header">
+      <a href="/" class="brand">Personal Blog</a>
+      <a href="/admin/dashboard" class="btn small">Dashboard</a>
+    </header>
+
+    <main class="container form-screen">
+      <section class="card full">
+        <p class="eyebrow">Admin Section</p>
+        <h1><%= mode === "create" ? "Add New Article" : "Edit Article" %></h1>
+
+        <%- include("../partials/flash-errors", { errors }) %>
+
+        <form method="POST" action="<%= action %>" class="stack-form">
+          <label>
+            Title
+            <input
+              type="text"
+              name="title"
+              value="<%= article.title %>"
+              required
+            />
+          </label>
+
+          <label>
+            Content
+            <textarea name="content" rows="14" required>
+<%= article.content %></textarea
+            >
+          </label>
+
+          <label>
+            Publication Date
+            <input
+              type="date"
+              name="publishedAt"
+              value="<%= article.publishedAt %>"
+              required
+            />
+          </label>
+
+          <div class="row-actions">
+            <button class="btn" type="submit">
+              <%= mode === "create" ? "Publish Article" : "Save Changes" %>
+            </button>
+            <a class="btn ghost" href="/admin/dashboard">Cancel</a>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

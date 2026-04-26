@@ -1,81 +1,101 @@
-# Learn Node.js Starter
+# Personal Blog (Express + EJS + File Storage)
 
-This repository is kept as a minimal base branch for future practice work.
+A server-rendered personal blog where guests can read articles and admin can create, edit, and delete posts.
 
-## What is included
+## Features
 
-- `index.js` with a small Express app
-- `package.json` with starter scripts
-- `.gitignore` for common Node files
+- Guest section:
+  - Home page with article list
+  - Individual article page with publish date
+- Admin section:
+  - Login page
+  - Dashboard listing all posts
+  - Add article form
+  - Edit article form
+  - Delete action
+- Filesystem storage:
+  - Each article saved as one JSON file in `data/articles`
 
-## Prerequisites
+## Tech
 
-- Node.js 18+
+- Node.js
+- Express
+- EJS templates
+- express-session
 
-## Install
+## Project Structure
+
+```text
+.
+├── data/
+│   └── articles/
+├── public/
+│   └── styles.css
+├── src/
+│   ├── config/
+│   │   └── adminConfig.js
+│   ├── controllers/
+│   │   └── blogController.js
+│   ├── middleware/
+│   │   └── auth.js
+│   ├── routes/
+│   │   └── blogRoutes.js
+│   └── services/
+│       └── articleService.js
+├── views/
+│   ├── admin/
+│   ├── errors/
+│   ├── guest/
+│   └── partials/
+├── index.js
+└── package.json
+```
+
+## Setup
+
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-## Run
-
-Development mode:
-
-```bash
-npm run dev
-```
-
-Production mode:
+2. Run app:
 
 ```bash
 npm start
 ```
 
-## Available Routes
+3. Open:
 
-- `GET /` returns a plain text starter message
-- `GET /api` returns a JSON starter response
-
-## Branch Workflow
-
-Use `main` as the base branch.
-
-```bash
-git checkout main
-git pull origin main
-git checkout -b my-practice-branch
+```text
+http://localhost:5000
 ```
 
-Keep practice features in separate branches so `main` stays clean and reusable.
+## Admin Login
 
-## My Practice Branch List
+Default credentials:
 
-Click any branch below to open it on GitHub:
+- Username: `admin`
+- Password: `admin123`
 
-- [1st](https://github.com/4MKBS/learn-nodejs/tree/1st)
-- [2nd](https://github.com/4MKBS/learn-nodejs/tree/2nd)
-- [3rd](https://github.com/4MKBS/learn-nodejs/tree/3rd)
-- [4th](https://github.com/4MKBS/learn-nodejs/tree/4th)
-- [5th](https://github.com/4MKBS/learn-nodejs/tree/5th)
-- [expense-tracker](https://github.com/4MKBS/learn-nodejs/tree/expense-tracker)
-- [githubActivity](https://github.com/4MKBS/learn-nodejs/tree/githubActivity)
-- [loginSingup](https://github.com/4MKBS/learn-nodejs/tree/loginSingup)
-- [number-guessing-game](https://github.com/4MKBS/learn-nodejs/tree/number-geuss)
-- [unit-converter](https://github.com/4MKBS/learn-nodejs/tree/unit-converter)
+You can override using environment variables:
 
-To navigate locally in terminal:
+- `ADMIN_USERNAME`
+- `ADMIN_PASSWORD`
+- `SESSION_SECRET`
 
-```bash
-git checkout branch-name
-```
+## Routes
 
-Example:
-
-```bash
-git checkout expense-tracker
-```
-
-## License
-
-ISC
+- Guest:
+  - `GET /`
+  - `GET /article/:slug`
+- Admin:
+  - `GET /admin/login`
+  - `POST /admin/login`
+  - `POST /admin/logout`
+  - `GET /admin/dashboard`
+  - `GET /admin/articles/new`
+  - `POST /admin/articles/new`
+  - `GET /admin/articles/:id/edit`
+  - `POST /admin/articles/:id/edit`
+  - `POST /admin/articles/:id/delete`

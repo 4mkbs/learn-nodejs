@@ -1,0 +1,9 @@
+{
+  "id": "welcome-post",
+  "slug": "welcome-to-my-blog",
+  "title": "Welcome to My Blog",
+  "content": "This is my first article in the personal blog project.\n\nHere I can publish thoughts, tutorials, and progress updates while learning backend development.",
+  "publishedAt": "2026-04-25T00:00:00.000Z",
+  "createdAt": "2026-04-25T00:00:00.000Z",
+  "updatedAt": "2026-04-25T00:00:00.000Z"
+}
