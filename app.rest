@@ -1,0 +1,39 @@
+GET http://localhost:65000/search?name=rahim&age=2342
+
+
+###
+GET http://localhost:65000/about
+Content-Type: application/json
+
+{
+    "city" : "rajshahi"
+}
+
+
+### Create a new user
+POST http://localhost:65000/users
+Content-Type: application/json
+
+{
+    "name": "rahim",
+    "age": 25,
+    "city": "Tkg"
+}
+
+###
+POST http://localhost:65000/blogs
+Content-Type: application/json
+
+{
+    "title": "hello world",
+    "body": "hello world",
+    "author": "karim",
+    "name": "sakib",
+    "token": "abc"
+}
+
+###
+GET http://localhost:65000/courses
+
+###
+GET http://localhost:65000/adults?age=13
