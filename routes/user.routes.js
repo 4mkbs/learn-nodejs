@@ -6,6 +6,7 @@ const {
   about,
   contact,
   user,
+  getAllUsers,
   search,
   newuser,
   blog,
@@ -25,6 +26,7 @@ router.get("/", home);
 router.get("/about", firstMiddleware, about);
 router.get("/contact", contact);
 router.get("/user/:id", user);
+router.get("/users", getAllUsers);
 router.get("/search", search);
 router.post("/users", changeAge, newuser);
 router.post("/blogs", storeBodyInRequest, loginchechmiddlewate, blog);

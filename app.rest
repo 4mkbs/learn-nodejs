@@ -15,9 +15,10 @@ POST http://localhost:65000/users
 Content-Type: application/json
 
 {
-    "name": "rahim",
+    "name": "sakib",
     "age": 25,
-    "city": "Tkg"
+    "city": "Tkg",
+    "country": "bangladesh"
 }
 
 ###
@@ -37,3 +38,10 @@ GET http://localhost:65000/courses
 
 ###
 GET http://localhost:65000/adults?age=13
+
+
+### Get a specific user by ID
+GET http://localhost:65000/user/1
+
+### Get all users
+GET http://localhost:65000/users
